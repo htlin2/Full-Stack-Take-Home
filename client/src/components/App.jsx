@@ -6,6 +6,7 @@ class App extends React.Component {
     this.state = {
       doctors: [],
       appointments: [],
+      selectedDoctor: {},
     }
 
     this.handleGetAllDoctors = this.handleGetAllDoctors.bind(this);
@@ -24,6 +25,11 @@ class App extends React.Component {
   }
 
   handleGetAppointmentsByDocId(docId) {
+    const selectedDoctor = this.state.doctors.filter(doc => doc.id === docId)[0];
+    if (selectedDoctor !== undefined) {
+      const { dFirstName, dLastName } = selectedDoctor;
+      document.getElementById("selectedDoctor").innerHTML = `${dFirstName} ${dLastName}`;
+    }
     fetch(`/doctors/${docId}/appointments`)
       .then(response => response.json())
       .then(appointments => this.setState({ appointments }));
@@ -52,6 +58,7 @@ class App extends React.Component {
         </div>
         <div className="containerRight">
           <h2>APPOINTMENTS</h2>
+          <div id="selectedDoctor"></div>
           {renderAppointments}
         </div>
       </div>
