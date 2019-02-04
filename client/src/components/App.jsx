@@ -7,16 +7,24 @@ class App extends React.Component {
       doctors: [],
       appointments: [],
     }
+
+    this.handleGetAllDoctors = this.handleGetAllDoctors.bind(this);
+    this.handleGetAppointmentsByDocId = this.handleGetAppointmentsByDocId.bind(this);
   }
 
   componentDidMount() {
+    this.handleGetAllDoctors();
+    this.handleGetAppointmentsByDocId(1);
+  }
+
+  handleGetAllDoctors() {
     fetch('/doctors')
       .then(response => response.json())
       .then(doctors => this.setState({ doctors }));
   }
 
-  handleGetAppointmentsByDocId() {
-    fetch('/doctors/1/appointments')
+  handleGetAppointmentsByDocId(docId) {
+    fetch(`/doctors/${docId}/appointments`)
       .then(response => response.json())
       .then(appointments => this.setState({ appointments }));
   }
