@@ -35,7 +35,13 @@ class Doctors {
   }
 
   getDoctors() {
-    return 'testing'
+    return this.doctors.map(doc => {
+      return {
+        id: doc.id,
+        dFirstName: doc.dFirstName,
+        dLastName: doc.dLastName,
+      }
+    })
   }
 
   getDoctorsByDocId(docId) {

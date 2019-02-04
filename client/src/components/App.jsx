@@ -3,16 +3,12 @@ import React from 'react';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      id: 1,
-      dFirstName: 'd1First',
-      dLastName: 'd1Last',
-      appointments: {},
-    }
   }
 
   componentDidMount() {
-
+    fetch('/doctors')
+      .then(response => response.json())
+      .then(data => console.log(data));
   }
 
   render() {
