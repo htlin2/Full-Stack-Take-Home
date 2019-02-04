@@ -1,3 +1,21 @@
-body {
+.container {
+  display: flex;
 }
 
+.containerLeft {
+  display: block;
+  width: 50%;
+}
+
+.containerRight {
+  display: block;
+  width: 50%;
+}
+
+.doctors {
+  cursor: pointer;
+}
+
+.doctors:hover {
+  color: lightblue;
+}

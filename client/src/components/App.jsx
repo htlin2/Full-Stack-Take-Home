@@ -29,13 +29,11 @@ class App extends React.Component {
       .then(appointments => this.setState({ appointments }));
   }
 
-
-
   render() {
     const renderDoctors = this.state.doctors.map(doc => {
       const { id, dFirstName, dLastName } = doc;
       return (
-        <li key={id} onClick={() => this.handleGetAppointmentsByDocId(id)}>{dLastName}, {dFirstName}</li>
+        <li key={id} className="doctors" onClick={() => this.handleGetAppointmentsByDocId(id)}>{dLastName}, {dFirstName}</li>
       )
     });
 
@@ -47,11 +45,15 @@ class App extends React.Component {
     });
 
     return (
-      <div>
-        <h2>PHYSICIANS</h2>
-        {renderDoctors}
-        <h2>APPOINTMENTS</h2>
-        {renderAppointments}
+      <div className="container">
+        <div className="containerLeft">
+          <h2>PHYSICIANS</h2>
+          {renderDoctors}
+        </div>
+        <div className="containerRight">
+          <h2>APPOINTMENTS</h2>
+          {renderAppointments}
+        </div>
       </div>
     )
   }
