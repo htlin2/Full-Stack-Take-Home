@@ -7,6 +7,9 @@ function getAllDoctors(req, res) {
 }
 
 function getAppointmentsByDocId(req, res) {
+  const docId = Number(req.params.docId);
+  const doc = db.getDoctorsByDocId(docId);
+  return res.status(200).send(doc.appointments);
 }
 
 module.exports = {

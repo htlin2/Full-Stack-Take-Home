@@ -5,31 +5,43 @@ class Doctors {
         id: 1,
         dFirstName: 'd1First',
         dLastName: 'd1Last',
-        appointments: {},
+        appointments: [{
+          time: "8:00AM",
+          year: 2019,
+          month: 2,
+          day: 3,
+          pFirstName: "pSample1",
+          pLastName: "pSample2",
+          type: "New",
+        }],
       },
       {
         id: 2,
         dFirstName: 'd2First',
         dLastName: 'd2Last',
-        appointments: {},
+        appointments: [{
+          time: "8:00AM",
+          year: 2019,
+          month: 2,
+          day: 3,
+          pFirstName: "pSample1",
+          pLastName: "pSample2",
+          type: "New",
+        }],
       },
       {
         id: 3,
         dFirstName: 'd3First',
         dLastName: 'd3Last',
-        appointments: {},
-      },
-      {
-        id: 4,
-        dFirstName: 'd4First',
-        dLastName: 'd4Last',
-        appointments: {},
-      },
-      {
-        id: 5,
-        dFirstName: 'd5First',
-        dLastName: 'd5Last',
-        appointments: {},
+        appointments: [{
+          time: "8:00AM",
+          year: 2019,
+          month: 2,
+          day: 3,
+          pFirstName: "pSample1",
+          pLastName: "pSample2",
+          type: "New",
+        }],
       },
     ]
   }
@@ -45,10 +57,9 @@ class Doctors {
   }
 
   getDoctorsByDocId(docId) {
+    return this.doctors.filter(doc => doc.id === docId)[0];
   }
 
-  getApptByDocIdAndDay(doc, time) {
-  }
 }
 
 module.exports = Doctors;
