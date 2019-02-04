@@ -21,7 +21,12 @@ class App extends React.Component {
   handleGetAllDoctors() {
     fetch('/doctors')
       .then(response => response.json())
-      .then(doctors => this.setState({ doctors }));
+      .then(doctors => {
+        const selectedDoctor = doctors[0];
+        const { dFirstName, dLastName } = selectedDoctor;
+        document.getElementById("selectedDoctor").innerHTML = `${dFirstName} ${dLastName}`;
+        this.setState({ doctors });
+      });
   }
 
   handleGetAppointmentsByDocId(docId) {
