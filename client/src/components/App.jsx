@@ -30,12 +30,18 @@ class App extends React.Component {
   }
 
   render() {
+    const renderDoctors = this.state.doctors.map(doc => {
+      const { id, dFirstName, dLastName } = doc;
+      return (
+        <li key={id}>{dLastName}, {dFirstName}</li>
+      )
+    });
     console.log(this.state.doctors);
     console.log(this.state.appointments);
     return (
       <div>
         <h2>PHYSICIANS</h2>
-
+        {renderDoctors}
       </div>
     )
   }
